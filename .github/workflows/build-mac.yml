@@ -1,0 +1,32 @@
+name: QuickFC_Mac
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build Mac application
+        run: |
+          pyinstaller --windowed --onedir --name MyProgram myprogram.py
+
+      - name: Upload Mac App
+        uses: actions/upload-artifact@v4
+        with:
+          name: QuickFC_v.1.45_GUI_v.1.31_Mac_v.1.00
+          path: C:\2.Important\2.Programing\Eluent_calculator\QuickFC_v.1.45_GUI_v.1.31.app

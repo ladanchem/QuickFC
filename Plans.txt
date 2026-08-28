@@ -1,0 +1,7 @@
+limits of entries and error showings
+make a link to version everywhere to "About"
+
+
+
+limits on digits in the fields
+Move data from one section to another one
