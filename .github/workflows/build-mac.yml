@@ -25,8 +25,13 @@ jobs:
         run: |
           pyinstaller --windowed --onedir --name QuickFC "QuickFC_v.1.45_GUI_v.1.31.py"
 
+      - name: Create Mac app ZIP
+        run: |
+          cd dist
+          zip -r QuickFC.app.zip QuickFC.app
+
       - name: Upload Mac App
         uses: actions/upload-artifact@v4
         with:
           name: QuickFC_v.1.45_GUI_v.1.31_Mac_v.1.00
-          path: dist/QuickFC.app
+          path: dist/QuickFC.app.zip
