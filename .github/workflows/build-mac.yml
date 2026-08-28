@@ -23,10 +23,10 @@ jobs:
 
       - name: Build Mac application
         run: |
-          pyinstaller --windowed --onedir --name MyProgram myprogram.py
+          pyinstaller --windowed --onedir --name QuickFC "QuickFC_v.1.45_GUI_v.1.31.py"
 
       - name: Upload Mac App
         uses: actions/upload-artifact@v4
         with:
           name: QuickFC_v.1.45_GUI_v.1.31_Mac_v.1.00
-          path: C:\2.Important\2.Programing\Eluent_calculator\QuickFC_v.1.45_GUI_v.1.31.app
+          path: dist/QuickFC.app
